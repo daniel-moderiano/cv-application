@@ -33,12 +33,6 @@ class ProfessionalExpForm extends Component {
     return (
       <ResumeSection title={this.props.title}>
           <form onSubmit={this.handleSubmit} className="form personal">
-          <Field fieldType="text" name="position" label="Position title" />
-          <Field fieldType="text" name="company" label="Company" />
-          <Field fieldType="text" name="locationWork" label="Location" />
-          <Field fieldType="text" name="durationWork" label="Duration of work" />
-          <Field fieldType="text" name="keyPoints" label="Key points" />
-          <Field fieldType="text" name="key-points" label="Key points" />
             <Field 
               fieldType="text" 
               name="position" 
