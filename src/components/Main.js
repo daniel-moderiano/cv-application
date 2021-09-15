@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ResumeSection from "./ResumeSection";
 import Field from "./Field";
-import PersonalInfo from "./PersonalInfo";
+import SummaryForm from "./SummaryForm";
+import PersonalInfoForm from "./PersonalInfoForm"
 import { nanoid } from "nanoid";
 
 class Main extends Component {
@@ -10,11 +11,9 @@ class Main extends Component {
     return (
       <main className="main">
 
-        <ResumeSection title="Summary">
-          <textarea className="summary" name="summary" id="summar" cols="30" rows="10"></textarea>
-        </ResumeSection>
+        <SummaryForm />
 
-        <PersonalInfo />
+        <PersonalInfoForm />
 
         <ResumeSection title="Professional Experience">
           <Field fieldType="text" name="position" label="Position title" />
