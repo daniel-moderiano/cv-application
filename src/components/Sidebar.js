@@ -1,9 +1,13 @@
-const Sidebar = () => {
-  return (
-    <aside className="sidebar">
+import React, { Component } from 'react';
+
+class Sidebar extends Component {
+  render() {
+    return (
+      <aside className="sidebar">
       
-    </aside>
-  )
-}
+      </aside>
+    );
+  }
+};
 
 export default Sidebar;
