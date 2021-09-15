@@ -4,19 +4,28 @@ import Field from "./Field";
 import { nanoid } from "nanoid";
 
 class Main extends Component {
-
+  // Currently state is monitoring textarea only, as an example of how to handle form input for the resume sections to follow
   constructor(props) {
     super(props);
 
-    this.state = {};      
+    this.state = {
+      summary: "Give a description of your professional self"
+    };      
+
+    this.handleChange = this.handleChange.bind(this);
+
   };
+
+  handleChange(event) {
+    this.setState({ summary: event.target.value });
+  }
 
   render() {
     return (
       <main className="main">
 
         <ResumeSection title="Summary">
-          <textarea className="summary" name="summary" id="summar" cols="30" rows="10"></textarea>
+          <textarea className="summary" name="summary" id="summar" cols="30" rows="10" onChange={this.handleChange} value={this.state.summary}></textarea>
         </ResumeSection>
 
         <ResumeSection title="Personal Information">
