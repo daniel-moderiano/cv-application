@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ResumeSection from "./ResumeSection";
 import Field from "./Field";
 import SummaryForm from "./SummaryForm";
-import PersonalInfoForm from "./PersonalInfoForm"
+import PersonalInfoForm from "./PersonalInfoForm";
+import ProfessionalExpForm from "./ProfessionalExpForm";
 import { nanoid } from "nanoid";
 
 class Main extends Component {
@@ -11,20 +12,13 @@ class Main extends Component {
     return (
       <main className="main">
 
-        <SummaryForm />
+        <SummaryForm title={'Summary'} />
 
-        <PersonalInfoForm />
+        <PersonalInfoForm title={'Personal Information'}/>
 
-        <ResumeSection title="Professional Experience">
-          <Field fieldType="text" name="position" label="Position title" />
-          <Field fieldType="text" name="company" label="Company" />
-          <Field fieldType="text" name="location-work" label="Location" />
-          <Field fieldType="text" name="duration-work" label="Duration of work" />
-          <Field fieldType="text" name="key-points" label="Key points" />
-          <Field fieldType="text" name="key-points" label="Key points" />
-        </ResumeSection>
+        <ProfessionalExpForm title={'Professional Experience'}/>
 
-        <ResumeSection title="Professional Experience">
+        <ResumeSection title="Education">
           <Field fieldType="text" name="qualification" label="Qualification/Certificate" />
           <Field fieldType="text" name="institute" label="Educational institute" />
           <Field fieldType="text" name="location-education" label="Location" />

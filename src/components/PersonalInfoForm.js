@@ -40,7 +40,7 @@ class PersonalInfoForm extends Component {
 
   render() {
     return (
-      <ResumeSection>
+      <ResumeSection title={this.props.title}>
           <form onSubmit={this.handleSubmit} className="form personal">
             <Field 
               fieldType="text" 
