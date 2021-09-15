@@ -8,81 +8,50 @@ class Main extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
-
-    this.resumeSections = [
-      {
-        id: nanoid(),
-        header: 'Personal Information',
-        inputs: [
-          'First Name',
-          'Last Name',
-          'Address Line 1',
-          'Address Line 2',
-          'State',
-          'Country',
-          'Post Code',
-          'Email',
-          'Phone'
-        ]
-      },
-      {
-        id: nanoid(),
-        header: 'Summary',
-        inputs: [
-          'About You'
-        ]
-      },
-      {
-        id: nanoid(),
-        header: 'Professional Experience',
-        inputs: [
-          'Position title',
-          'Place of employment',
-          'Location',
-          'Dates worked',
-          'Key points',
-          'Key points',
-          'Key points'
-        ]
-      },
-      {
-        id: nanoid(),
-        header: 'Education',
-        inputs: [
-          'Qualification/Certificate',
-          'Place of education',
-          'Location',
-          'Graduation date',
-          'Key points',
-        ]
-      },
-      {
-        id: nanoid(),
-        header: 'Interests',
-        inputs: [
-          'Interest',
-          'Interest',
-          'Interest',
-          'Interest'
-        ]
-      }
-    ]
-      
+    this.state = {};      
   };
 
   render() {
     return (
       <main className="main">
-        {/* {this.resumeSections.map((section, i) => (<ResumeSection key={section.id} title={section.header} />))} */}
-        <section className="personal">
-          <h2 className="resume-section__header">Personal Information</h2>
-          <div className="resume__section__content">
-            <form className="form">
-              <Field fieldType="text" name="first-name" label="First Name" />
-            </form>
-          </div>
-        </section>
+
+        <ResumeSection title="Summary">
+          <textarea className="summary" name="summary" id="summar" cols="30" rows="10"></textarea>
+        </ResumeSection>
+
+        <ResumeSection title="Personal Information">
+          <Field fieldType="text" name="first-name" label="First Name" />
+          <Field fieldType="text" name="last-name" label="Last Name" />
+          <Field fieldType="text" name="address-one" label="Address Line 1" />
+          <Field fieldType="text" name="address-two" label="Address Line 2" />
+          <Field fieldType="text" name="state" label="State" />
+          <Field fieldType="text" name="country" label="Country" />
+          <Field fieldType="text" name="postcode" label="Postcode" />
+        </ResumeSection>
+
+        <ResumeSection title="Professional Experience">
+          <Field fieldType="text" name="position" label="Position title" />
+          <Field fieldType="text" name="company" label="Company" />
+          <Field fieldType="text" name="location-work" label="Location" />
+          <Field fieldType="text" name="duration-work" label="Duration of work" />
+          <Field fieldType="text" name="key-points" label="Key points" />
+          <Field fieldType="text" name="key-points" label="Key points" />
+        </ResumeSection>
+
+        <ResumeSection title="Professional Experience">
+          <Field fieldType="text" name="qualification" label="Qualification/Certificate" />
+          <Field fieldType="text" name="institute" label="Educational institute" />
+          <Field fieldType="text" name="location-education" label="Location" />
+          <Field fieldType="text" name="graduation" label="Graduation date" />
+          <Field fieldType="text" name="key-points" label="Key points" />
+        </ResumeSection>
+
+        <ResumeSection title="Interests">
+          <Field fieldType="text" name="interest" label="Interest" />
+          <Field fieldType="text" name="interest" label="Interest" />
+          <Field fieldType="text" name="interest" label="Interest" />
+        </ResumeSection>
+
       </main>
     );
   }
