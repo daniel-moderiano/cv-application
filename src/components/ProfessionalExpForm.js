@@ -12,6 +12,7 @@ class ProfessionalExpForm extends Component {
       locationWork: "",
       durationWork: "",
       keyPoints: "",
+      disabled: false,
     };      
 
     // Bind all methods
@@ -27,6 +28,7 @@ class ProfessionalExpForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ disabled: true });
   }
   
   handleEdit() {
@@ -43,7 +45,8 @@ class ProfessionalExpForm extends Component {
               label="Position/Title" 
               placeholder={""} 
               value={this.state.position} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -51,7 +54,8 @@ class ProfessionalExpForm extends Component {
               label="Company" 
               placeholder={""} 
               value={this.state.company} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -59,7 +63,8 @@ class ProfessionalExpForm extends Component {
               label="Location" 
               placeholder={""} 
               value={this.state.locationWork} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -67,7 +72,8 @@ class ProfessionalExpForm extends Component {
               label="Duration of work" 
               placeholder={""} 
               value={this.state.durationWork} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -75,7 +81,8 @@ class ProfessionalExpForm extends Component {
               label="Key points" 
               placeholder={""} 
               value={this.state.keyPoints} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
 
             <button type="submit">Save</button>

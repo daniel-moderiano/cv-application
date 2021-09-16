@@ -12,6 +12,7 @@ class EducationForm extends Component {
       locationEducation: "",
       graduation: "",
       keyPoints: "",
+      disabled: false,
     };      
 
     // Bind all methods
@@ -27,6 +28,7 @@ class EducationForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({ disabled: true })
   }
 
   
@@ -45,6 +47,7 @@ class EducationForm extends Component {
               placeholder={""} 
               value={this.state.qualification} 
               onChange={this.handleChange} 
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -53,6 +56,7 @@ class EducationForm extends Component {
               placeholder={""} 
               value={this.state.institute} 
               onChange={this.handleChange} 
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -60,7 +64,8 @@ class EducationForm extends Component {
               label="Location" 
               placeholder={""} 
               value={this.state.locationEducation} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -68,7 +73,8 @@ class EducationForm extends Component {
               label="Graduation Date" 
               placeholder={""} 
               value={this.state.graduation} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -76,7 +82,8 @@ class EducationForm extends Component {
               label="Key points" 
               placeholder={""} 
               value={this.state.keyPoints} 
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
 
             <button type="submit">Save</button>
