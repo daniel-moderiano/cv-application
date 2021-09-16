@@ -16,11 +16,13 @@ class PersonalInfoForm extends Component {
       postcode: "",
       email: "",
       phone: "",
+      disabled: false,
     };      
 
     // Bind all methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   };
 
@@ -32,11 +34,16 @@ class PersonalInfoForm extends Component {
   // There is no need to 'capture' data on submit, as the state will already be up to date with every input field anyway
   handleSubmit(event) {
     // Adjust appearance/behaviour of input fields to prevent modification (unless edit is pressed)
-    console.log(this.state);
+    
+    this.setState({ disabled: true });
+    console.log('Submitted');
     event.preventDefault();
   }
 
-  
+  handleEdit() {
+    this.setState({ disabled: false });
+    console.log('Editing');
+  }
 
   render() {
     return (
@@ -49,6 +56,7 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.firstName} 
               onChange={this.handleChange} 
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -57,6 +65,7 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.lastName} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -64,14 +73,18 @@ class PersonalInfoForm extends Component {
               label="Address Line 1" 
               placeholder={""} 
               value={this.state.addressOne} 
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+              />
             <Field 
               fieldType="text" 
               name="addressTwo" 
               label="Address Line 2" 
               placeholder={""} 
               value={this.state.addressTwo} 
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+              />
             <Field 
               fieldType="text" 
               name="locationState" 
@@ -79,6 +92,7 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.locationState} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -87,6 +101,7 @@ class PersonalInfoForm extends Component {
               placeholder={""}
               value={this.state.country} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -95,6 +110,7 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.postcode} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="email" 
@@ -103,6 +119,7 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.email} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
@@ -111,10 +128,11 @@ class PersonalInfoForm extends Component {
               placeholder={""} 
               value={this.state.phone} 
               onChange={this.handleChange}
+              disabled={this.state.disabled}
             />
             <button type="submit">Save</button>
           </form>
-          <button type="button">Edit</button>
+          <button type="button" onClick={this.handleEdit}>Edit</button>
       </ResumeSection>
     );
   }

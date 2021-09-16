@@ -15,7 +15,7 @@ class Main extends Component {
 
         <SummaryForm title={'Summary'} />
 
-        <PersonalInfoForm title={'Personal Information'}/>
+        <PersonalInfoForm title={'Personal Information'} disabled={true}/>
 
         <ProfessionalExpForm title={'Professional Experience'}/>
 
