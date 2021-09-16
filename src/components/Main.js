@@ -8,12 +8,33 @@ import EducationForm from "./EducationForm";
 import { nanoid } from "nanoid";
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      summary: {},
+      personalInfo: {},
+      professionalExp: {},
+      education: {},
+      interests: {},
+    };
+
+    this.handleFormData = this.handleFormData.bind(this);
+  }
+
+  handleFormData(formData) {
+    // Convert the form data to an array to enable us to filter the disable property from the saved data
+    const formDataArr = Object.entries(formData);
+    const filteredData = formDataArr.filter((entry) => entry[0] !== 'disabled');
+    this.setState({ summary: Object.fromEntries(filteredData) });
+    console.log(this.state);
+  }
 
   render() {
     return (
       <main className="main">
 
-        <SummaryForm title={'Summary'} />
+        <SummaryForm title={'Summary'} onSave={this.handleFormData}/>
 
         <PersonalInfoForm title={'Personal Information'} disabled={true}/>
 
