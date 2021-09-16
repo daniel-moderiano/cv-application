@@ -31,7 +31,6 @@ class EducationForm extends Component {
     this.setState({ disabled: true })
   }
 
-  
   handleEdit() {
     this.setState({ disabled: false });
   }
@@ -39,7 +38,7 @@ class EducationForm extends Component {
   render() {
     return (
       <ResumeSection title={this.props.title}>
-          <form onSubmit={this.handleSubmit} className="form personal">
+          <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state, 'education') }} className="form personal">
             <Field 
               fieldType="text" 
               name="qualification" 

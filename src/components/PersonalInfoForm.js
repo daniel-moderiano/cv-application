@@ -46,7 +46,7 @@ class PersonalInfoForm extends Component {
   render() {
     return (
       <ResumeSection title={this.props.title}>
-          <form onSubmit={this.handleSubmit} className="form personal">
+          <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state, 'personal') }} className="form personal">
             <Field 
               fieldType="text" 
               name="firstName" 

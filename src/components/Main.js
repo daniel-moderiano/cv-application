@@ -22,11 +22,10 @@ class Main extends Component {
     this.handleFormData = this.handleFormData.bind(this);
   }
 
-  handleFormData(formData) {
+  handleFormData(formData, formName) {
     // Convert the form data to an array to enable us to filter the disable property from the saved data
-    const formDataArr = Object.entries(formData);
-    const filteredData = formDataArr.filter((entry) => entry[0] !== 'disabled');
-    this.setState({ summary: Object.fromEntries(filteredData) });
+    const filteredData =  (Object.entries(formData)).filter((entry) => entry[0] !== 'disabled');
+    this.setState({ [formName]: Object.fromEntries(filteredData) });
     console.log(this.state);
   }
 
@@ -36,11 +35,11 @@ class Main extends Component {
 
         <SummaryForm title={'Summary'} onSave={this.handleFormData}/>
 
-        <PersonalInfoForm title={'Personal Information'} disabled={true}/>
+        <PersonalInfoForm title={'Personal Information'} disabled={true} onSave={this.handleFormData} />
 
-        <ProfessionalExpForm title={'Professional Experience'}/>
+        <ProfessionalExpForm title={'Professional Experience'} onSave={this.handleFormData} />
 
-        <EducationForm title={'Education'}/>
+        <EducationForm title={'Education'} onSave={this.handleFormData} />
 
         <ResumeSection title="Interests">
           <Field fieldType="text" name="interest" label="Interest" />

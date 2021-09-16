@@ -33,7 +33,7 @@ class SummaryForm extends Component {
   render() {
     return (
       <ResumeSection title={this.props.title}>
-          <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state) }} className="form personal">
+          <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state, 'summary') }} className="form personal">
             <textarea name="summary" id="summary" cols="30" rows="10" value={this.state.summary} onChange={this.handleChange} disabled={this.state.disabled}></textarea>
             <button type="submit">Save</button>
           </form>
