@@ -7,11 +7,13 @@ class SummaryForm extends Component {
 
     this.state = {
       summary: "Provide a description of your professional self",
+      disabled: false,
     };      
 
     // Bind all methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   };
 
@@ -20,18 +22,22 @@ class SummaryForm extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
+    this.setState({ disabled: true });
+  }
+  
+  handleEdit() {
+    this.setState({ disabled: false });
   }
 
   render() {
     return (
       <ResumeSection title={this.props.title}>
           <form onSubmit={this.handleSubmit} className="form personal">
-            <textarea name="summary" id="summary" cols="30" rows="10" value={this.state.summary} onChange={this.handleChange}></textarea>
+            <textarea name="summary" id="summary" cols="30" rows="10" value={this.state.summary} onChange={this.handleChange} disabled={this.state.disabled}></textarea>
             <button type="submit">Save</button>
           </form>
-          <button type="button">Edit</button>
+          <button type="button" onClick={this.handleEdit}>Edit</button>
       </ResumeSection>
     );
   }

@@ -17,6 +17,7 @@ class ProfessionalExpForm extends Component {
     // Bind all methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   };
 
@@ -25,8 +26,11 @@ class ProfessionalExpForm extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
+  }
+  
+  handleEdit() {
+    this.setState({ disabled: false });
   }
 
   render() {
@@ -76,7 +80,7 @@ class ProfessionalExpForm extends Component {
 
             <button type="submit">Save</button>
           </form>
-          <button type="button">Edit</button>
+          <button type="button" onClick={this.handleEdit}>Edit</button>
       </ResumeSection>
     );
   }

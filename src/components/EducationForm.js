@@ -17,6 +17,7 @@ class EducationForm extends Component {
     // Bind all methods
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
 
   };
 
@@ -25,8 +26,12 @@ class EducationForm extends Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
+  }
+
+  
+  handleEdit() {
+    this.setState({ disabled: false });
   }
 
   render() {
@@ -76,7 +81,7 @@ class EducationForm extends Component {
 
             <button type="submit">Save</button>
           </form>
-          <button type="button">Edit</button>
+          <button type="button" onClick={this.handleEdit}>Edit</button>
       </ResumeSection>
     );
   }

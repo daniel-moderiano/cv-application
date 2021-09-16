@@ -36,13 +36,11 @@ class PersonalInfoForm extends Component {
     // Adjust appearance/behaviour of input fields to prevent modification (unless edit is pressed)
     
     this.setState({ disabled: true });
-    console.log('Submitted');
     event.preventDefault();
   }
 
   handleEdit() {
     this.setState({ disabled: false });
-    console.log('Editing');
   }
 
   render() {
