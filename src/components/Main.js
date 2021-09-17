@@ -11,9 +11,9 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      personalInfo: {},
-      professionalExp: {},
-      education: {},
+      personalInfo: [],
+      professionalExp: [],
+      education: [],
       interests: {},
     };
 
@@ -31,11 +31,22 @@ class Main extends Component {
     return (
       <main className="main">
 
-        <PersonalInfoForm title={'Personal Information'} onSave={this.handleFormData} />
+        
 
-        <ProfessionalExpForm title={'Professional Experience'} onSave={this.handleFormData} />
+        
 
-        <EducationForm title={'Education'} onSave={this.handleFormData} />
+        <ResumeSection title={'Personal Information'}>
+          <PersonalInfoForm onSave={this.handleFormData} />
+        </ResumeSection>
+
+        <ResumeSection title={'Professional Experience'}>
+          <ProfessionalExpForm onSave={this.handleFormData} />
+        </ResumeSection>
+        
+
+        <ResumeSection title={'Education'}>
+          <EducationForm onSave={this.handleFormData} />
+        </ResumeSection>
 
         <ResumeSection title="Interests">
           <Field fieldType="text" name="interest" label="Interest" />
