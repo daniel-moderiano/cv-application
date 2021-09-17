@@ -6,6 +6,7 @@ class ProfessionalExpForm extends Component {
     super(props);
 
     this.state = {
+      id: this.props.id,
       position: "",
       company: "",
       city: "",

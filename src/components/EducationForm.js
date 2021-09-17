@@ -6,6 +6,7 @@ class EducationForm extends Component {
     super(props);
 
     this.state = {
+      id: this.props.id,
       degree: "",
       school: "",
       city: "",

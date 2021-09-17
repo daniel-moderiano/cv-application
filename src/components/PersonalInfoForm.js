@@ -6,6 +6,7 @@ class PersonalInfoForm extends Component {
     super(props);
 
     this.state = {
+      id: this.props.id,
       firstName: "",
       lastName: "",
       currentRole: "",
