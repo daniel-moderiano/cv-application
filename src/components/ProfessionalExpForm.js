@@ -10,7 +10,8 @@ class ProfessionalExpForm extends Component {
       position: "",
       company: "",
       locationWork: "",
-      durationWork: "",
+      startDate: "",
+      endDate: "",
       description: "",
       disabled: false,
     };      
@@ -42,7 +43,7 @@ class ProfessionalExpForm extends Component {
             <Field 
               fieldType="text" 
               name="position" 
-              label="Position/Title" 
+              label="Position" 
               placeholder={""} 
               value={this.state.position} 
               onChange={this.handleChange}
@@ -68,10 +69,19 @@ class ProfessionalExpForm extends Component {
             />
             <Field 
               fieldType="text" 
-              name="durationWork" 
-              label="Duration of work" 
-              placeholder={""} 
-              value={this.state.durationWork} 
+              name="startDate" 
+              label="Start Date" 
+              placeholder={"YYYY"} 
+              value={this.state.startDate} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            />
+            <Field 
+              fieldType="text" 
+              name="endDate" 
+              label="End Date" 
+              placeholder={"YYYY or Present"} 
+              value={this.state.endDate} 
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
