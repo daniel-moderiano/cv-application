@@ -10,12 +10,20 @@ class Main extends Component {
     super(props);
 
     this.state = {
+      profForms: 1,
+      eduForms: 1,
       personal: [],
       professional: [],
       education: [],
     };
 
     this.handleFormData = this.handleFormData.bind(this);
+    this.addEduForm = this.addEduForm.bind(this);
+    this.addProfForm = this.addProfForm.bind(this);
+    this.deleteEduForm= this.deleteEduForm.bind(this);
+    this.deleteProfForm = this.deleteProfForm.bind(this);
+
+
   }
 
   handleFormData(formData, formName) {
@@ -39,7 +47,60 @@ class Main extends Component {
     console.log(this.state);
   }
 
+  addProfForm() {
+    if (this.state.profForms < 5) {
+      this.setState({ profForms: this.state.profForms + 1 });
+    }
+  }
+
+  addEduForm() {
+    if (this.state.eduForms < 5) {
+      this.setState({ eduForms: this.state.eduForms + 1 });
+    }
+  }
+
+  deleteProfForm() {
+    if (this.state.profForms > 1) {
+      this.setState({ profForms: this.state.profForms - 1 });
+    }
+  }
+
+  deleteEduForm() {
+    if (this.state.eduForms > 1) {
+      this.setState({ eduForms: this.state.eduForms - 1 });
+    }
+  }
+
   render() {
+    const profForms = [];
+    const eduForms = [];
+
+    for (let i = 0; i < this.state.profForms; i++) {
+      profForms.push(
+        <ProfessionalExpForm 
+          onSave={this.handleFormData} 
+          onAdd={this.addProfForm}
+          onDelete={this.deleteProfForm}
+          id={nanoid()} 
+        />
+      );
+    }
+
+    for (let i = 0; i < this.state.eduForms; i++) {
+      eduForms.push(
+        <EducationForm 
+          onSave={this.handleFormData} 
+          onAdd={this.addEduForm}
+          onDelete={this.deleteEduForm}
+          id={nanoid()} 
+        />
+      );
+    }
+
+    
+    
+
+
     return (
       <main className="main">
 
@@ -48,11 +109,11 @@ class Main extends Component {
         </ResumeSection>
 
         <ResumeSection title={'Professional Experience'}>
-          <ProfessionalExpForm onSave={this.handleFormData} id={nanoid()} />
+          {profForms}
         </ResumeSection>
 
         <ResumeSection title={'Education'}>
-          <EducationForm onSave={this.handleFormData} id={nanoid()} />
+          {eduForms}
         </ResumeSection>
 
       </main>

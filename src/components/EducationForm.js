@@ -101,6 +101,8 @@ class EducationForm extends Component {
 
         <button type="submit">Save</button>
         <button type="button" onClick={this.handleEdit}>Edit</button>
+        <button type="button" className="add" onClick={this.props.onAdd}>Add</button>
+        <button type="button" className="delete" onClick={this.props.onDelete}>Delete</button>
       </form>
     );
   }
