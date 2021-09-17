@@ -9,7 +9,7 @@ class ProfessionalExpForm extends Component {
     this.state = {
       position: "",
       company: "",
-      locationWork: "",
+      city: "",
       startDate: "",
       endDate: "",
       description: "",
@@ -60,10 +60,10 @@ class ProfessionalExpForm extends Component {
             />
             <Field 
               fieldType="text" 
-              name="locationWork" 
-              label="Location" 
+              name="city" 
+              label="City" 
               placeholder={""} 
-              value={this.state.locationWork} 
+              value={this.state.city} 
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />

@@ -7,10 +7,11 @@ class EducationForm extends Component {
     super(props);
 
     this.state = {
-      qualification: "",
-      institute: "",
-      locationEducation: "",
-      graduation: "",
+      degree: "",
+      school: "",
+      city: "",
+      startDate: "",
+      endDate: "",
       description: "",
       disabled: false,
     };      
@@ -41,37 +42,47 @@ class EducationForm extends Component {
           <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state, 'education') }} className="form personal">
             <Field 
               fieldType="text" 
-              name="qualification" 
-              label="Qualification/Certificate" 
+              name="degree" 
+              label="Degree" 
               placeholder={""} 
-              value={this.state.qualification} 
+              value={this.state.degree} 
               onChange={this.handleChange} 
               disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
-              name="institute" 
-              label="Educational Institute" 
+              name="school" 
+              label="University or School" 
               placeholder={""} 
-              value={this.state.institute} 
+              value={this.state.school} 
               onChange={this.handleChange} 
               disabled={this.state.disabled}
             />
             <Field 
               fieldType="text" 
-              name="locationEducation" 
-              label="Location" 
+              name="city" 
+              label="City" 
               placeholder={""} 
               value={this.state.locationEducation} 
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
+
             <Field 
               fieldType="text" 
-              name="graduation" 
-              label="Graduation Date" 
-              placeholder={""} 
-              value={this.state.graduation} 
+              name="startDate" 
+              label="Start Date" 
+              placeholder={"YYYY"} 
+              value={this.state.startDate} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            />
+            <Field 
+              fieldType="text" 
+              name="endDate" 
+              label="End Date" 
+              placeholder={"YYYY or Present"} 
+              value={this.state.endDate} 
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
