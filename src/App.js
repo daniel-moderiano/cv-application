@@ -9,7 +9,6 @@ class App extends Component {
       <header className="header">
         <h1 className="header__title">CV Generator</h1>
       </header>
-      {/* <Header /> */}
       <Main />
       <Sidebar />
     </div>

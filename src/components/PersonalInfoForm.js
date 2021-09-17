@@ -9,13 +9,12 @@ class PersonalInfoForm extends Component {
     this.state = {
       firstName: "",
       lastName: "",
+      currentRole: "",
       addressOne: "",
       addressTwo: "",
-      locationState: "",
-      country: "",
-      postcode: "",
       email: "",
       phone: "",
+      linkedin: "",
       disabled: false,
     };      
 
@@ -67,6 +66,15 @@ class PersonalInfoForm extends Component {
             />
             <Field 
               fieldType="text" 
+              name="currentRole" 
+              label="Current Role" 
+              placeholder={""} 
+              value={this.state.currentRole} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            />
+            <Field 
+              fieldType="text" 
               name="addressOne" 
               label="Address Line 1" 
               placeholder={""} 
@@ -84,33 +92,6 @@ class PersonalInfoForm extends Component {
               disabled={this.state.disabled}
               />
             <Field 
-              fieldType="text" 
-              name="locationState" 
-              label="State" 
-              placeholder={""} 
-              value={this.state.locationState} 
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            />
-            <Field 
-              fieldType="text" 
-              name="country" 
-              label="Country" 
-              placeholder={""}
-              value={this.state.country} 
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            />
-            <Field 
-              fieldType="text" 
-              name="postcode" 
-              label="Postcode" 
-              placeholder={""} 
-              value={this.state.postcode} 
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            />
-            <Field 
               fieldType="email" 
               name="email" 
               label="Email Address" 
@@ -125,6 +106,15 @@ class PersonalInfoForm extends Component {
               label="Phone Number" 
               placeholder={""} 
               value={this.state.phone} 
+              onChange={this.handleChange}
+              disabled={this.state.disabled}
+            />
+            <Field 
+              fieldType="url" 
+              name="linkedin" 
+              label="LinkedIn" 
+              placeholder={""} 
+              value={this.state.linkedin} 
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
