@@ -11,10 +11,9 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      personalInfo: [],
-      professionalExp: [],
-      education: [],
-      interests: {},
+      personal: {},
+      professional: {},
+      education: {},
     };
 
     this.handleFormData = this.handleFormData.bind(this);
@@ -31,10 +30,6 @@ class Main extends Component {
     return (
       <main className="main">
 
-        
-
-        
-
         <ResumeSection title={'Personal Information'}>
           <PersonalInfoForm onSave={this.handleFormData} />
         </ResumeSection>
@@ -42,16 +37,9 @@ class Main extends Component {
         <ResumeSection title={'Professional Experience'}>
           <ProfessionalExpForm onSave={this.handleFormData} />
         </ResumeSection>
-        
 
         <ResumeSection title={'Education'}>
           <EducationForm onSave={this.handleFormData} />
-        </ResumeSection>
-
-        <ResumeSection title="Interests">
-          <Field fieldType="text" name="interest" label="Interest" />
-          <Field fieldType="text" name="interest" label="Interest" />
-          <Field fieldType="text" name="interest" label="Interest" />
         </ResumeSection>
 
       </main>
