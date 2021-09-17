@@ -102,7 +102,7 @@ class ProfessionalExpForm extends Component {
         <button type="submit">Save</button>
         <button type="button" onClick={this.handleEdit}>Edit</button>
         <button type="button" className="add" onClick={this.props.onAdd}>Add</button>
-        <button type="button" className="delete" onClick={this.props.onDelete}>Delete</button>
+        <button type="button" className={(this.props.index === 0) ? 'delete hidden' : 'delete'} onClick={() => this.props.onDelete(this.state.id)}>Delete</button>
       </form>
     );
   }

@@ -59,15 +59,17 @@ class Main extends Component {
     }
   }
 
-  deleteProfForm() {
+  deleteProfForm(dataId) {
     if (this.state.profForms > 1) {
       this.setState({ profForms: this.state.profForms - 1 });
+      this.setState({ professional: this.state.professional.filter((data) => data.id !== dataId) });
     }
   }
 
-  deleteEduForm() {
+  deleteEduForm(dataId) {
     if (this.state.eduForms > 1) {
       this.setState({ eduForms: this.state.eduForms - 1 });
+      this.setState({ education: this.state.education.filter((data) => data.id !== dataId) });
     }
   }
 
@@ -82,6 +84,8 @@ class Main extends Component {
           onAdd={this.addProfForm}
           onDelete={this.deleteProfForm}
           id={nanoid()} 
+          index={i}
+          key={i}
         />
       );
     }
@@ -93,6 +97,8 @@ class Main extends Component {
           onAdd={this.addEduForm}
           onDelete={this.deleteEduForm}
           id={nanoid()} 
+          index={i}
+          key={i}
         />
       );
     }
