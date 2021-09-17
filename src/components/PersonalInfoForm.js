@@ -15,6 +15,7 @@ class PersonalInfoForm extends Component {
       email: "",
       phone: "",
       linkedin: "",
+      summary: "Small bio about yourself",
       disabled: false,
     };      
 
@@ -118,6 +119,11 @@ class PersonalInfoForm extends Component {
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
+
+            <div className="field">
+              <label htmlFor="summary">Summary</label>
+              <textarea name="summary" id="summary" cols="30" rows="10" value={this.state.summary} onChange={this.handleChange} disabled={this.state.disabled}></textarea>
+            </div>
             <button type="submit">Save</button>
           </form>
           <button type="button" onClick={this.handleEdit}>Edit</button>

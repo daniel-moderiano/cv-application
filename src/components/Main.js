@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ResumeSection from "./ResumeSection";
 import Field from "./Field";
-import SummaryForm from "./SummaryForm";
 import PersonalInfoForm from "./PersonalInfoForm";
 import ProfessionalExpForm from "./ProfessionalExpForm";
 import EducationForm from "./EducationForm";
@@ -12,7 +11,6 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      summary: {},
       personalInfo: {},
       professionalExp: {},
       education: {},
@@ -32,8 +30,6 @@ class Main extends Component {
   render() {
     return (
       <main className="main">
-
-        <SummaryForm title={'Summary'} onSave={this.handleFormData}/>
 
         <PersonalInfoForm title={'Personal Information'} onSave={this.handleFormData} />
 
