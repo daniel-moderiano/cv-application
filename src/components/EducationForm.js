@@ -11,7 +11,7 @@ class EducationForm extends Component {
       institute: "",
       locationEducation: "",
       graduation: "",
-      keyPoints: "",
+      description: "",
       disabled: false,
     };      
 
@@ -75,15 +75,19 @@ class EducationForm extends Component {
               onChange={this.handleChange}
               disabled={this.state.disabled}
             />
-            <Field 
-              fieldType="text" 
-              name="keyPoints" 
-              label="Key points" 
-              placeholder={""} 
-              value={this.state.keyPoints} 
-              onChange={this.handleChange}
-              disabled={this.state.disabled}
-            />
+
+            <div className="field">
+              <label htmlFor="description" className="label">Description or Achievements (optional)</label>
+              <textarea 
+                name="description" 
+                id="description" 
+                cols="30" 
+                rows="10" 
+                value={this.state.description} 
+                onChange={this.handleChange}
+                disabled={this.state.disabled}>
+              </textarea>
+            </div>
 
             <button type="submit">Save</button>
           </form>

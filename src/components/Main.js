@@ -35,7 +35,7 @@ class Main extends Component {
 
         <SummaryForm title={'Summary'} onSave={this.handleFormData}/>
 
-        <PersonalInfoForm title={'Personal Information'} disabled={true} onSave={this.handleFormData} />
+        <PersonalInfoForm title={'Personal Information'} onSave={this.handleFormData} />
 
         <ProfessionalExpForm title={'Professional Experience'} onSave={this.handleFormData} />
 
