@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
+import '../src/styles/reset.css';
+import '../src/styles/app.css';
 
 class App extends Component {
   render() {
