@@ -11,7 +11,7 @@ class App extends Component {
       <header className="header">
         <h1 className="header__title">CV Generator</h1>
       </header>
-      <Main />
+      <Main>
       <div className="resume">
         <div className="header">
           <div className="personal">
@@ -57,6 +57,7 @@ class App extends Component {
           </div>
         </div>
       </div>
+      </Main>
       <Sidebar />
     </div>
     );
