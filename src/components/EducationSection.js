@@ -5,14 +5,13 @@ export default class EducationSection extends Component {
     return (
       <div className="education">
         <h2 className="education__title">Education</h2>
-        {/* <!-- Professional/education section can be abstracted to component to replicate as needed --> */}
         <div className="education__section">
-          <div className="education__school">Harvard University</div>
-          <div className="education__city">New York</div>
-          <div className="education__degree">Bachelor of Law</div>
-          <div className="education__start">From 2000</div>
-          <div className="education__end">To 2004</div>
-          <div className="education__desc"></div>
+          <div className="education__school">{this.props.data.school}</div>
+          <div className="education__city">{this.props.data.city}</div>
+          <div className="education__degree">{this.props.data.degree}</div>
+          <div className="education__start">{this.props.data.startDate}</div>
+          <div className="education__end">{this.props.data.endDate}</div>
+          <div className="education__desc">{this.props.data.description}</div>
         </div>
       </div>
     );
