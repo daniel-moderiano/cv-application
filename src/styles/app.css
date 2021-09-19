@@ -130,3 +130,13 @@ textarea:focus {
 textarea:focus::placeholder {
   color: rgb(59, 59, 59);
 }
+
+/* ### RESUME STYLING ### */
+
+.resume {
+  width: 100%;
+}
+
+.resume h2 {
+  border-bottom: none;
+}
