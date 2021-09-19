@@ -4,6 +4,7 @@ import PersonalInfoForm from "./PersonalInfoForm";
 import ProfessionalExpForm from "./ProfessionalExpForm";
 import EducationForm from "./EducationForm";
 import ProfessionalSection from "./ProfessionalSection";
+import PersonalSection from "./PersonalSection";
 import { nanoid } from "nanoid";
 import EducationSection from "./EducationSection";
 
@@ -17,6 +18,17 @@ class Main extends Component {
       personal: [],
       professional: [],
       education: [],
+      template: {
+        firstName: "",
+        lastName: "",
+        currentRole: "",
+        addressOne: "",
+        addressTwo: "",
+        email: "",
+        phone: "",
+        linkedin: "",
+        summary: "Small bio about yourself",
+      },
     };
 
     this.handleFormData = this.handleFormData.bind(this);
@@ -122,25 +134,9 @@ class Main extends Component {
         </ResumeSection>
         
         <div className="resume">
-          <div className="header">
-            <div className="personal">
-              <h1 className="personal__name">John Doe</h1>
-              <h2 className="personal__title">Lawyer</h2>
-            </div>
-            <div className="personal__info">
-              <div className="personal__address-one">18 Trenton Stree</div>
-              <div className="personal__address-two">Vale Drive, ACT, 5000</div>
-              <div className="personal__phone"> 0444 448 884</div>
-              <div className="personal__email">john.doe@outlook.com</div>
-              <div className="personal__linkedin">https://johndoe.linkedin.com</div>
-            </div>
-          </div>
-          
-          <div className="summary">
-            <h2 className="summary__title">Summary</h2>
-            <p className="summary__text">Lawyer in New York City</p>
-          </div>
+ 
 
+          <PersonalSection data={this.state.personal[0] ? this.state.personal[0] : this.state.template}/>
           {educationSections}
           {professionalSections}
 
