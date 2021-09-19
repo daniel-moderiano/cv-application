@@ -3,7 +3,9 @@ import ResumeSection from "./ResumeSection";
 import PersonalInfoForm from "./PersonalInfoForm";
 import ProfessionalExpForm from "./ProfessionalExpForm";
 import EducationForm from "./EducationForm";
+import ProfessionalSection from "./ProfessionalSection";
 import { nanoid } from "nanoid";
+import EducationSection from "./EducationSection";
 
 class Main extends Component {
   constructor(props) {
@@ -43,8 +45,6 @@ class Main extends Component {
         return data;
       }) });
     }
-    
-    console.log(this.state);
   }
 
   addProfForm() {
@@ -103,9 +103,8 @@ class Main extends Component {
       );
     }
 
-    
-    
-
+    const educationSections = this.state.education.map((data, index) => (<EducationSection data={data} key={index} />));
+    const professionalSections = this.state.professional.map((data, index) => (<ProfessionalSection data={data} key={index} />));
 
     return (
       <main className="main">
@@ -142,30 +141,10 @@ class Main extends Component {
             <p className="summary__text">Lawyer in New York City</p>
           </div>
 
-          <div className="education">
-            <h2 className="education__title">Education</h2>
-            {/* <!-- Professional/education section can be abstracted to component to replicate as needed --> */}
-            <div className="education__section">
-              <div className="education__school">Harvard University</div>
-              <div className="education__city">New York</div>
-              <div className="education__degree">Bachelor of Law</div>
-              <div className="education__start">From 2000</div>
-              <div className="education__end">To 2004</div>
-              <div className="education__desc"></div>
-            </div>
-          </div>
-          <div className="professional">
-            <h2 className="professional__title">Professional Experience</h2>
-            {/* <!-- Professional/education section can be abstracted to component to replicate as needed --> */}
-            <div className="professional__section">
-              <div className="professional__company">Harvard University</div>
-              <div className="professional__city">New York</div>
-              <div className="professional__job">Bachelor of Law</div>
-              <div className="professional__start">From 2000</div>
-              <div className="professional__end">To 2004</div>
-              <div className="professional__desc"></div>
-            </div>
-          </div>
+          {educationSections}
+          {professionalSections}
+          {/* <EducationSection />
+          <ProfessionalSection /> */}
         </div>
 
 
