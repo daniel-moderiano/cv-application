@@ -143,8 +143,7 @@ class Main extends Component {
 
           {educationSections}
           {professionalSections}
-          {/* <EducationSection />
-          <ProfessionalSection /> */}
+
         </div>
 
 
