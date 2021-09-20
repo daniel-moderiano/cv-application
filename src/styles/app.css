@@ -135,8 +135,82 @@ textarea:focus::placeholder {
 
 .resume {
   width: 100%;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-sizing: border-box;
 }
 
 .resume h2 {
-  border-bottom: none;
+  border-bottom: 1px solid black;
+  margin: 2.5rem 0 1rem 0;
+}
+
+.resume .personal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.resume .header {
+  margin: 0;
+}
+
+.personal__info div {
+  padding: 0.2rem 0;
+  place-self: end;
+  margin: 0;
+  text-align: right;
+}
+
+.personal__name {
+  padding-bottom: 0.5rem;
+}
+
+.personal__title {
+  border: none !important;
+  margin: 0 !important;
+  font-weight: normal;
+}
+
+.resume .summary {
+  margin-top: 0.5rem;
+  grid-column: 1 / 3;
+}
+
+.resume .summary__title {
+  border-bottom: 1px solid black;
+  margin-top: 0;
+}
+
+.professional__section, .education__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5rem 1.1rem 1fr;
+}
+
+.professional__company, .education__school {
+  grid-row: 2 / 3;
+}
+
+.professional__city, .education__city {
+  grid-row: 2 / 3;
+  place-self: start right;
+}
+
+.professional__job, .education__degree {
+  grid-row: 1 / 2;
+  font-weight: bold;
+  padding: 0.1rem 0;
+}
+
+.professional__time, .education__time {
+  grid-row: 1 / 2;
+  place-self: start right;
+  font-weight: bold;
+  padding: 0.1rem 0;
+}
+
+.professional__desc, .education__desc {
+  grid-column: 1 / 3;
+  margin-top: 1rem;
 }
