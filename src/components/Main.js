@@ -27,7 +27,6 @@ class Main extends Component {
         email: "",
         phone: "",
         linkedin: "",
-        summary: "Small bio about yourself",
       },
     };
 
@@ -121,22 +120,25 @@ class Main extends Component {
     return (
       <main className="main">
 
-        <ResumeSection title={'Personal Information'}>
-          <PersonalInfoForm onSave={this.handleFormData} id={nanoid()} />
-        </ResumeSection>
+        <div className="generator">
+          <ResumeSection title={'Personal Information'}>
+            <PersonalInfoForm onSave={this.handleFormData} id={nanoid()} />
+          </ResumeSection>
 
-        <ResumeSection title={'Professional Experience'}>
-          {profForms}
-        </ResumeSection>
+          <ResumeSection title={'Professional Experience'}>
+            {profForms}
+          </ResumeSection>
 
-        <ResumeSection title={'Education'}>
-          {eduForms}
-        </ResumeSection>
+          <ResumeSection title={'Education'}>
+            {eduForms}
+          </ResumeSection>
+        </div>
+        
         
         <div className="resume">
  
 
-          <PersonalSection data={this.state.personal[0] ? this.state.personal[0] : this.state.template}/>
+          <PersonalSection data={this.state.personal[0] ? this.state.personal[0] : ""}/>
           <div className="education">
             <h2 className="education__title">Education</h2>
             {educationSections}
