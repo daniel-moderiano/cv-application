@@ -137,9 +137,16 @@ class Main extends Component {
  
 
           <PersonalSection data={this.state.personal[0] ? this.state.personal[0] : this.state.template}/>
-          {educationSections}
-          {professionalSections}
-
+          <div className="education">
+            <h2 className="education__title">Education</h2>
+            {educationSections}
+          </div>
+          
+          <div className="professional">
+            <h2 className="professional__title">Professional Experience</h2>
+            {professionalSections}
+          </div>
+          
         </div>
 
 
