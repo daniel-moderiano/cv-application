@@ -1,111 +1,101 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Field from "./Field";
 
-class ProfessionalExpForm extends Component {
-  constructor(props) {
-    super(props);
+const ProfessionalExpForm = (props) => {
 
-    this.state = {
-      id: this.props.id,
-      position: "",
-      company: "",
-      city: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      disabled: false,
-    };      
+  const [disabled, setDisabled] = useState(false);
 
-    // Bind all methods
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+  const [data, setData] = useState({
+    id: props.id,
+    position: "",
+    company: "",
+    city: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  });
 
-  };
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
   }
 
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ disabled: true });
+    setDisabled(true);
   }
   
-  handleEdit() {
-    this.setState({ disabled: false });
+  const handleEdit = () => {
+    setDisabled(false);
   }
 
-  render() {
-    return (
-      <form onSubmit={(event) => { this.handleSubmit(event); this.props.onSave(this.state, 'professional') }} className="form personal">
-        <Field 
-          fieldType="text" 
-          name="position" 
-          label="Position" 
-          placeholder={""} 
-          value={this.state.position} 
-          onChange={this.handleChange}
-          disabled={this.state.disabled}
-        />
-        <Field 
-          fieldType="text" 
-          name="company" 
-          label="Company" 
-          placeholder={""} 
-          value={this.state.company} 
-          onChange={this.handleChange}
-          disabled={this.state.disabled}
-        />
-        <Field 
-          fieldType="text" 
-          name="city" 
-          label="City" 
-          placeholder={""} 
-          value={this.state.city} 
-          onChange={this.handleChange}
-          disabled={this.state.disabled}
-        />
-        <Field 
-          fieldType="text" 
-          name="startDate" 
-          label="Start Date" 
-          placeholder={"YYYY"} 
-          value={this.state.startDate} 
-          onChange={this.handleChange}
-          disabled={this.state.disabled}
-        />
-        <Field 
-          fieldType="text" 
-          name="endDate" 
-          label="End Date" 
-          placeholder={"YYYY or Present"} 
-          value={this.state.endDate} 
-          onChange={this.handleChange}
-          disabled={this.state.disabled}
-        />
+  return (
+    <form onSubmit={(event) => { handleSubmit(event); props.onSave(data, 'professional') }} className="form personal">
+      <Field 
+        fieldType="text" 
+        name="position" 
+        label="Position" 
+        placeholder={""} 
+        value={data.position} 
+        onChange={handleChange}
+        disabled={disabled}
+      />
+      <Field 
+        fieldType="text" 
+        name="company" 
+        label="Company" 
+        placeholder={""} 
+        value={data.company} 
+        onChange={handleChange}
+        disabled={disabled}
+      />
+      <Field 
+        fieldType="text" 
+        name="city" 
+        label="City" 
+        placeholder={""} 
+        value={data.city} 
+        onChange={handleChange}
+        disabled={disabled}
+      />
+      <Field 
+        fieldType="text" 
+        name="startDate" 
+        label="Start Date" 
+        placeholder={"YYYY"} 
+        value={data.startDate} 
+        onChange={handleChange}
+        disabled={disabled}
+      />
+      <Field 
+        fieldType="text" 
+        name="endDate" 
+        label="End Date" 
+        placeholder={"YYYY or Present"} 
+        value={data.endDate} 
+        onChange={handleChange}
+        disabled={disabled}
+      />
 
-        <div className="field">
-          <label htmlFor="description" className="label">Job description (optional)</label>
-          <textarea 
-            name="description" 
-            id="description" 
-            cols="30" 
-            rows="10" 
-            value={this.state.description} 
-            onChange={this.handleChange}
-            disabled={this.state.disabled}>
-          </textarea>
-        </div>
-        
+      <div className="field">
+        <label htmlFor="description" className="label">Job description (optional)</label>
+        <textarea 
+          name="description" 
+          id="description" 
+          cols="30" 
+          rows="10" 
+          value={data.description} 
+          onChange={handleChange}
+          disabled={disabled}>
+        </textarea>
+      </div>
+      
 
-        <button type="submit">Save</button>
-        <button type="button" onClick={this.handleEdit}>Edit</button>
-        <button type="button" className="add" onClick={this.props.onAdd}>Add</button>
-        <button type="button" className={(this.props.index === 0) ? 'delete hidden' : 'delete'} onClick={() => this.props.onDelete(this.state.id)}>Delete</button>
-      </form>
-    );
-  }
+      <button type="submit">Save</button>
+      <button type="button" onClick={handleEdit}>Edit</button>
+      <button type="button" className="add" onClick={props.onAdd}>Add</button>
+      <button type="button" className={(props.index === 0) ? 'delete hidden' : 'delete'} onClick={() => props.onDelete(data.id)}>Delete</button>
+    </form>
+  );
 }
 
 export default ProfessionalExpForm;
