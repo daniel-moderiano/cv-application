@@ -25,9 +25,9 @@ const Main = () => {
     const dataIndex = forms[formName].findIndex((data) => data.id === formData.id);
 
     if (dataIndex === -1) {
-      setForms({ ...forms, [formName]: forms[formName].concat(formData) });
+      setForms({ ...forms, [formName]: [formName].concat(formData) });
     } else {
-      setForms({ ...forms, [formName]: forms[formName].map((data) => {
+      setForms({ ...forms, [formName]: [formName].map((data) => {
         if (data.id === formData.id) {
           data = formData;
         }
@@ -87,9 +87,9 @@ const Main = () => {
     for (let i = 0; i < profForms; i++) {
       profDOMForms.push(
         <ProfessionalExpForm 
-          onSave={handleFormData} 
+          onSave={this.handleFormData} 
           onAdd={addProfForm}
-          onDelete={deleteProfForm}
+          onDelete={this.deleteProfForm}
           id={nanoid()} 
           index={i}
           key={i}
@@ -100,14 +100,14 @@ const Main = () => {
     return profDOMForms;
   }
 
-  const educationSections = forms.education.map((data, index) => (<EducationSection data={data} key={index} />));
-  const professionalSections = forms.professional.map((data, index) => (<ProfessionalSection data={data} key={index} />));
+  const educationSections = this.state.education.map((data, index) => (<EducationSection data={data} key={index} />));
+  const professionalSections = this.state.professional.map((data, index) => (<ProfessionalSection data={data} key={index} />));
 
   return (
     <main className="main">
       <div className="generator">
         <ResumeSection title={'Personal Information'}>
-          <PersonalInfoForm onSave={handleFormData} id={nanoid()} />
+          <PersonalInfoForm onSave={this.handleFormData} id={nanoid()} />
         </ResumeSection>
 
         <ResumeSection title={'Professional Experience'}>
@@ -120,7 +120,7 @@ const Main = () => {
       </div>
       
       <div className="resume">
-        <PersonalSection data={forms.personal[0] ? forms.personal[0] : ""}/>
+        <PersonalSection data={this.state.personal[0] ? this.state.personal[0] : ""}/>
 
         <div className="education">
           <h2 className="education__title">Education</h2>
