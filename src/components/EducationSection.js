@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class EducationSection extends Component {
-  render() {
-    return (
-      <div className="education__section">
-        <div className="education__school">{this.props.data.school}</div>
-        <div className="education__city">{this.props.data.city}</div>
-        <div className="education__degree">{this.props.data.degree}</div>
-        <div className="education__time"><div className="professional__time">{`${this.props.data.startDate} - ${this.props.data.endDate}`}</div></div>
-        <div className="education__desc">{this.props.data.description}</div>
-      </div>
+const EducationSection = (props) => {
+  const {school, city, degree, startDate, endDate, description} = props.data;
 
-    );
-  }
+  return (
+    <div className="education__section">
+      <div className="education__school">{school}</div>
+      <div className="education__city">{city}</div>
+      <div className="education__degree">{degree}</div>
+      <div className="education__time"><div className="professional__time">{`${startDate} - ${endDate}`}</div></div>
+      <div className="education__desc">{description}</div>
+    </div>
+  )
 }
+
+export default EducationSection;
 
