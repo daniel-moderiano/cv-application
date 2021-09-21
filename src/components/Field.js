@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class Field extends Component {
+const Field = (props) => {
+  const { fieldType, name, label, value, placeholder, onChange, disabled } = props;
 
-  disableInput() {
-
-  }
-
-  render() {
-    const { fieldType, name, label, value, placeholder, onChange, disabled } = this.props;
-    return (
-      <div className="field">
-        <label htmlFor="">{label}</label>
-        <input name={name} type={fieldType} value={value} placeholder={placeholder} onChange={onChange} disabled={disabled}/>
-      </div>  
-    );
-  }
-};
+  return (
+    <div className="field">
+      <label htmlFor="">{label}</label>
+      <input name={name} type={fieldType} value={value} placeholder={placeholder} onChange={onChange} disabled={disabled}/>
+    </div> 
+  );
+}
 
 export default Field;
